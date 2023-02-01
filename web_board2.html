@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>โปรเเกรมยืมคืนอุปกรณ์ - Login</title>
+  <style>
+    body {
+      background-color: white;
+    }
+    input {
+      font-size: 20px;
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <h1>โปรเเกรมยืมคืนอุปกรณ์</h1>
+  <h2>Please login</h2>
+  <form onsubmit="return validateForm()">
+    <label for="firstname-surname">กรอกชื่อเเละนามสกุล:</label>
+    <input type="text" id="firstname" name="firstname" required>
+    <br><br>
+    <label for="studentID">รหัสนักศึกษา:</label>
+    <input type="text" id="studentID" name="studentID" required>
+    <br><br>
+    <a href="second_page.html">
+      <button type="submit" value="Submit">b1</button>
+
+  </form>
+  <script>
+    function validateForm() {
+      var firstname = document.forms["form"]["firstname"].value;
+      var studentID = document.forms["form"]["studentID"].value;
+      if (!/^[a-zA-Z]+$/.test(firstname) || !/^[0-9]+$/.test(studentID)) {
+        alert("First Name-surname should contain only letters, and Student ID should contain only numbers.");
+        return false;
+      } else if (firstname == "" || studentID == "") {
+        alert("Both First Name-surname and Student ID are required to be filled out");
+        return false;
+      } else {
+        window.location.href = "second_page.html";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -22,8 +22,8 @@ header
 {
     text-align: center;
     width: 100%;
-    height: 150px;
-    background: yellow;
+    height: 100px;
+    background: lightgreen;
     margin: 0 auto;
 }
 nav{
@@ -31,9 +31,9 @@ nav{
     margin-left: 0px;
     margin-top: 0px;
     text-align: center;
-    width: 100px;
-    height: 700px;
-    background:coral;
+    width: 25%;
+    height: 5000px;
+    background:rgb(84, 208, 49);
     float: left;
 }
 section
@@ -42,9 +42,9 @@ section
     margin-left: 0px;
     margin-top: 0px;
     text-align: center;
-    width: 545px;
-    height: 700px;
-    background: red;
+    width: 50%;
+    height: 5000px;
+    background: rgb(99, 207, 99);
     float: left;
 }
 aside
@@ -52,15 +52,15 @@ aside
     justify-content: left;
     margin-right: 0px;
     margin-top: 0px;
-    width: 305px;
-    height: 700px;
+    width: 25%;
+    height: 5000px;
     text-align: center;
     background: green;
     float: left;
 }
 footer
 {
-    background: blue;
+    background: rgb(103, 222, 152);
     width: 100%;
     height: 50;
     margin: 0px 70;
