@@ -1,12 +1,13 @@
 const mongoose = require('mongoose')
+
 const ForumSchema = mongoose.Schema(
     {
-        Name: String,
-        Message: String,
-        Forumid: Number
+        ForumId:    Number,
+        FullName:   String,
+        Message:    String
     },
     {
         versionKey: false
     }
 )
-module.exports = mongoose.model('forum',ForumSchema)
+module.exports = mongoose.model('Forum',ForumSchema)

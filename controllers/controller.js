@@ -1,7 +1,7 @@
-const forum = require('../models/forum.js')
+var forum = require('../models/forum.js')
 
 exports.index = (req, res)=>{
-    res.send('<h1>Webbord Application</h1><hr><a href = "/api/webborad">List </a>')
+    res.send('<h1>Webbord Application</h1><hr><a href = "/api/forum">List</a>')
 }
 exports.findAll = (req, res)=>{
     forum.find().then(data=>{
@@ -23,11 +23,12 @@ exports.create = (req, res) =>{
         })
     })
 }
+
 exports.findById = (req, res)=>{
-    forum.findById(req.params.ForumId).then(data =>{
+    forum.findById(req.params.forumId).then(data =>{
         if(!data){
             return res.status(404).json({
-                msg: "Not find Record code : " + req.params.customerId
+                msg: "Not find Record code : " + req.params.forumId
             })
         }
         res.json(data)
@@ -43,7 +44,7 @@ exports.update = (req, res) =>{
     .then(data=>{
         if(!data){
             return res.status(404).json({
-                msg: "Not find Record code : " + req.params.customerId
+                msg: "Not find Record code : " + req.params.forumId
             })
         }
         res.json(data)
@@ -54,11 +55,11 @@ exports.update = (req, res) =>{
     })
 }
 exports.delete = (req, res)=>{
-    customer.findByIdAndDelete(req.params.ForumId)
+    forum.findByIdAndDelete(req.params.forumId)
     .then(data=>{
         if(!data){
             return res.status(404).json({
-                msg: "Not find Record code : " + req.params.ForumId
+                msg: "Not find Record code : " + req.params.forumId
             })
         }
         res.json(data)
