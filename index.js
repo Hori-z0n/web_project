@@ -36,7 +36,21 @@ const server = app.listen(3000, ()=>{
     console.log('Run at http://localhost:%s', port)
 })
 app.get('/', (req, res)=>{
-    res.sendFile(__dirname + "The_project.html")
+    res.sendFile(__dirname + "/The_project.html")
+})
+app.get('/home', (req, res)=>{
+    //res.send("Home page")
+    res.sendFile(__dirname + '/home.html')
+})
+app.get('/about', (req, res)=>{
+    res.sendFile(__dirname + "/about.html")
+})
+app.get('/help', (req, res)=>{
+    res.sendFile(__dirname + "/help.html")
+})
+app.get('*',(req, res)=>{
+    res.send('404 error')
+    //res.sendFile(__dirname + "404.jpg")
 })
 function initForum(){
     let data = [
@@ -135,16 +149,6 @@ function initforum(){
 //})
 /*
 
-app.get('/home', (req, res)=>{
-    res.sendFile(__dirname + "home.html")
-})
-app.get('/about', (req, res)=>{
-    res.sendFile(__dirname + "about.html")
-})
-app.get('/help', (req, res)=>{
-    res.sendFile(__dirname + "help.html")
-})
-app.get('*',(req, res)=>{
-    res.sendFile(__dirname + "404.jpg")
-})
+
+
 */
