@@ -8,6 +8,10 @@ const Customer = require('./models/forum.js')
 const cors = require('cors')
 const app = express();
 
+var app = require('express')
+var http = require('http').createServer(app)
+var io = require('socket.io')(http)
+
 app.use(express.json());
 app.use(express.urlencoded({
     extended: true
@@ -31,6 +35,8 @@ mongoose.connect(dbConfig.url)
 app.use(cors())
 require('./routes/route.js')(app);
 
+var server_port = process.env.PORT||3000
+http.listen(server_port)
 const server = app.listen(3000, ()=>{
     let port = server.address().port
     console.log('Run at http://localhost:%s', port)
@@ -48,10 +54,15 @@ app.get('/about', (req, res)=>{
 app.get('/help', (req, res)=>{
     res.sendFile(__dirname + "/help.html")
 })
+app.get('/board',(req, res)=>{
+    res.sendFile(__dirname + "/web_board2.html")
+})
 app.get('*',(req, res)=>{
     res.send('404 error')
     //res.sendFile(__dirname + "404.jpg")
 })
+
+
 function initForum(){
     let data = [
         {
