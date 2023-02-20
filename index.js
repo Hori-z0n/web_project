@@ -8,9 +8,9 @@ const Customer = require('./models/forum.js')
 const cors = require('cors')
 const app = express();
 
-var app = require('express')
-var http = require('http').createServer(app)
-var io = require('socket.io')(http)
+//var app = require('express')
+//var http = require('http').createServer(express)
+//var io = require('socket.io')(http)
 
 app.use(express.json());
 app.use(express.urlencoded({
@@ -35,12 +35,19 @@ mongoose.connect(dbConfig.url)
 app.use(cors())
 require('./routes/route.js')(app);
 
-var server_port = process.env.PORT||3000
-http.listen(server_port)
+//var server_port = process.env.PORT||3000
+//http.listen(server_port)
+
 const server = app.listen(3000, ()=>{
     let port = server.address().port
     console.log('Run at http://localhost:%s', port)
 })
+/*
+const server_port = app.listen(process.env.PORT||3000, ()=>{
+    let port = server.address().port
+    console.log('Run at http://localhost:%s', port)
+})
+*/
 app.get('/', (req, res)=>{
     res.sendFile(__dirname + "/The_project.html")
 })
@@ -87,79 +94,3 @@ function initForum(){
     }
     console.log('Create Customer Complete')
 }
-
-/*
-const express = require('express')
-const bodyParser = require('body-parser')
-const mongoose = require('mongoose')
-
-const dbConfig = require('./config/mongodb.config.js')
-const Forum = require('./models/forum.js')
-
-const cors = require('cors')
-const app = express();
-
-app.use(express.json());
-app.use(express.urlencoded({
-    extended: true
-}))
-
-mongoose.Promise = global.Promise;
-mongoose.connect(dbConfig.url)
-    .then(()=>{
-        Customer.deleteMany({},(err)=>{
-    if(err){
-        process.exit();
-            }
-            console.log("Remove Collection of Customer")
-            initforum();
-        });
-    }).catch(err=>{
-        console.log('Connot Connect to MongoDB')
-        process.exit()
-    })
-
-app.use(cors())
-require('./routes/route.js')(app);
-
-const server = app.listen(3000, ()=>{
-    let port = server.address().port
-    //console.log("Start Server Port [3000]")
-    console.log('Run at http://localhost:%s', port)   
-})
-function initforum(){
-    let data = [
-        {
-            Forumid: 1001,
-            Name: "Krisada",
-            Message: "What happen"
-        },
-        {
-            Forumid: 1001,
-            Name: "Felix",
-            Message: "Not thing"
-        },
-        {
-            Forumid: 1001,
-            Name: "Mical",
-            Message: "OK"
-        },
-    ]
-    for(let i = 0; i < data.length; i++){
-        const c = new Forum(data[i]);
-        c.save()
-    }
-    console.log('Create Message Complete')
-}
-//const server = app.listen(process.env.PORT || 3000, ()=>{
-//    console.log('Run')
-//})
-//const server = app.listen(3000, ()=>{
-//    let port = server.address().port;
-//    console.log('Run at http://localhost:%s', port)
-//})
-/*
-
-
-
-*/
