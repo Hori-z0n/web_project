@@ -1,28 +1,26 @@
 {
-  "name": "forum",
+  "name": "realtime_chat",
   "version": "1.0.0",
-  "description": "made by kunlawat chuabswasdi",
+  "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Hori-z0n/web_project.git"
+    "url": "git+https://github.com/Hori-z0n/Realtime_chat.git"
   },
-  "author": "kunlawat",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Hori-z0n/web_project/issues"
+    "url": "https://github.com/Hori-z0n/Realtime_chat/issues"
   },
-  "homepage": "https://github.com/Hori-z0n/web_project#readme",
+  "homepage": "https://github.com/Hori-z0n/Realtime_chat#readme",
   "dependencies": {
-    "body-parser": "^1.20.1",
-    "cors": "^2.8.5",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
-    "mongoose": "^6.9.0",
     "nodemon": "^2.0.20",
-    "socket.io": "^4.6.0"
+    "socket.io": "^4.6.1"
   }
 }
