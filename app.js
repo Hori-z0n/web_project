@@ -1,6 +1,7 @@
 const express = require('express')
 const socketio = require('socket.io')
 const app = express();
+const port = 3000;
 
 app.set('view engine', "ejs");
 app.use(express.static('public'));
@@ -17,10 +18,16 @@ app.get('/about', (req, res)=>{
 app.get('/help', (req, res)=>{
     res.render("help");
 })
-app.get('/board', (req, res)=>{
+app.get('/room', (req, res)=>{
     res.render("index");
 })
-const server = app.listen(process.env.PORT||3000, ()=>{
+app.get('/login', (req, res)=>{
+    res.render("login");
+})
+app.get('/register', (req, res)=>{
+    res.render("register");
+})
+const server = app.listen(process.env.PORT||port, ()=>{
     console.log("server is runing...")
 })
 
